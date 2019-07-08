@@ -1,0 +1,72 @@
+﻿@using DACS.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DACS.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "Khachhang";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ KHÁCH HÀNG</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemmoiKH")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">Họ tên</th>
+        <th style="width:100px">Tài khoản</th>
+        <th style="width:300px">Mật khẩu</th>
+        <th style="width:120px">Email</th>
+        <th style="width:150px">Địa chỉ</th>
+        <th style="width:120px">Điện thoại</th>
+        <th style="width:120px">Ngày sinh</th>
+        <th style="width:200px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taikhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matkhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiachiKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienthoaiKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaysinh)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaKH", new { id = item.MaKH }) |
+                @Html.ActionLink("Chi tiết", "ChitietKH", new { id = item.MaKH }) |
+                @Html.ActionLink("Xóa", "XoaKH", new { id = item.MaKH })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*Tạo liên kết các trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Khachhang", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
+

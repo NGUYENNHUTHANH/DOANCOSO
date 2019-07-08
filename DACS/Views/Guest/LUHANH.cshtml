@@ -1,0 +1,10 @@
+﻿
+    @foreach (var item in Model)
+    {
+        <li style="float:left; padding-top:5px; padding-left:5px; display:block; position:relative; z-index:1; width:100px; height:50px;">
+            <a href="@Url.Action("SPluhanh","Guest",new {id =item.MaTH })" class="list-group-item">
+                @item.TenDV
+            </a>
+        </li>
+    }
+

@@ -1,0 +1,56 @@
+﻿@using DACS.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DACS.Models.CHUDE>
+
+@{
+    ViewBag.Title = "Chude";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ CHỦ ĐỀ</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemmoiCD")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">Tên chủ đề</th>
+        <th style="width:500px">Ảnh chủ đề</th>
+        <th style="width:200px">Phân loại</th>
+        <th style="width:200px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChuDe)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Img/Chude/"+item.AnhCD)" style="width:120px; height:120px;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHANLOAI.TenPL)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaCD", new { id = item.MaCD }) |
+                @Html.ActionLink("Chi tiết", "ChitietCD", new { id = item.MaCD }) |
+                @Html.ActionLink("Xóa", "XoaCD", new { id = item.MaCD })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*Tạo liên kết các trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Chude", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
+

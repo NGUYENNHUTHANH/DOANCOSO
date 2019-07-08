@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "SPTheophanloai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var sanpham in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href=@Url.Action("SPTheochude","Guest", new {id=sanpham.MaCD})>
+                <div class="caption">
+                    <h4>
+                        @sanpham.TenChuDe
+                    </h4>
+                </div>
+            </a>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+
+<a href="@Url.Action("Index","Guest")">TRỞ VỀ TRANG CHỦ</a>
+<h3> THÔNG TIN CHI TIẾT SẢN PHẨM</h3>
+<div>
+    <div style="width:40%; float:none; border-left:dotted 1px; border-color:azure;">
+        <img src="~/img/SanPham/@Model.Anhbia" width="200%" />
+    </div>
+    <div style="width:60%; float:left; padding:10px;">
+        <h4 style="font-weight:bold;">Tên sản phẩm:<span style="color:red; font-size:16pt;"> @Model.TenSP</span></h4>
+        <p style="text-align:justify"><span style="font-weight:bold;">Mô tả: </span> @Model.Mota</p>
+        <p style="font-weight:bold;"> Giá: <span style="color:red; font-size:16pt;"> @Model.Gia VNĐ</span></p>
+    </div>
+    <div>
+        <div id="Datmua">
+            <a href="@Url.Action("ThemGiohang","Giohang",new {@iMaSP=Model.MaSP,@StrURL=Request.Url.ToString()})" class="list-group-item">
+                ĐẶT TOUR
+            </a>
+        </div>
+    </div>
+    <div>
+        <a href="https://www.baokim.vn/payment/product/version11?business=trikiet100%40gmail.com&id=&order_description=S%E1%BA%A3n+ph%E1%BA%A9m+ch%E1%BA%A5t+l%C6%B0%E1%BB%A3ng+cao%2C+h%E1%BB%A3p+ti%C3%AAu+chu%E1%BA%A9n.&product_name=SHEIN+%C4%90%E1%BA%A7m+Tao+Nh%C3%A3&product_price=250000&product_quantity=1&total_amount=250000&url_cancel=&url_detail=&url_success="><img src="http://www.baokim.vn/developers/uploads/baokim_btn/" alt="Thanh toán an toàn với Bảo Kim !" border="0" title="Thanh toán trực tuyến an toàn dùng tài khoản Ngân hàng (VietcomBank, TechcomBank, Đông Á, VietinBank, Quân Đội, VIB, SHB,... và thẻ Quốc tế (Visa, Master Card...) qua Cổng thanh toán trực tuyến BảoKim.vn"></a>
+    </div>
+</div>
+<div>
+    <div class="fb-comments" data-href="http://banquanao.somee.com" data-numposts="5"></div>
+</div>
+
+
+

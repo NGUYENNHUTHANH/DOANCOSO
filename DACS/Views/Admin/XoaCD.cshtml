@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "XoaCD";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>XoaCD</h2>
+
+@model DACS.Models.CHUDE
+
+@{
+    ViewBag.Title = "XoaCD";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Xác nhận thông tin chủ đề cần xóa</h2>
+
+<h3>Bạn có quyết định xóa chủ đề này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên chủ đề:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuDe)
+        </dd>
+
+        <dt>
+            Ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Images/Chude/"+Model.AnhCD)" width="120px" ; />
+        </dd>
+
+        <dt>
+            Phân loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHANLOAI.TenPL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("TRỞ VỀ CHỦ ĐỀ", "Chude")
+        </div>
+    }
+</div>
+

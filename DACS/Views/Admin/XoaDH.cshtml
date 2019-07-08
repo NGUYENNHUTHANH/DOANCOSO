@@ -1,0 +1,74 @@
+﻿@model DACS.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "XoaDH";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Xác nhận thông tin đơn đặt hàng cần xóa</h2>
+
+<h3>Bạn có quyết định xóa đơn đặt hàng này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Đã thanh toán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dathanhtoan)
+        </dd>
+
+        <dt>
+            Tình trạng giao hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tinhtranggiaohang)
+        </dd>
+
+        <dt>
+            Ngày đặt:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaydat)
+        </dd>
+
+        <dt>
+            Ngày giao:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaygiao)
+        </dd>
+
+        <dt>
+            Họ tên KH:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.HoTen)
+        </dd>
+
+        <dt>
+            Địa chỉ KH:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.DiachiKH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("TRỞ VỀ ĐƠN ĐẶT HÀNG", "Dondathang")
+        </div>
+    }
+</div>
+

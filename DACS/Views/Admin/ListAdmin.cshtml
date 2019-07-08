@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DACS.Models.ADMIN>
+@{
+    ViewBag.Title = "ListAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ DANH SÁCH ADMIN</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemmoiAdmin")
+</p>
+<table class="table" border="1">
+    <tr>
+    <tr>
+        <th style="width:200px">Username:</th>
+        <th style="width:200px">Password:</th>
+        <th style="width:200px">Họ tên</th>
+        <th style="width:200px"></th>
+    </tr>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hoten)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaAdmin", new { id = item.MaAdmin }) |
+                @Html.ActionLink("Chi tiết", "ChitietAdmin", new { id = item.MaAdmin }) |
+                @Html.ActionLink("Xóa", "XoaAdmin", new { id = item.MaAdmin })
+            </td>
+        </tr>
+    }
+
+</table>
+

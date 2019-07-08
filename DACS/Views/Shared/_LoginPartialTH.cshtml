@@ -1,0 +1,25 @@
+﻿
+@if (Session["TaikhoanTH"] != null)
+{
+
+    <li>
+        <p style="padding-top:15px; font-weight:bold; color:white;">Hello, @Session["TentaikhoanTH"]</p>
+    </li>
+    <li>
+        <a href="@Url.Action("Themmoisanpham","DONVILUHANH")">TOUR</a>
+    </li>
+    <li>
+        <a href="@Url.Action("DangXuatTH","DONVILUHANH")">Đăng Xuất</a>
+    </li>
+
+
+}
+else
+{
+
+    <li>@Html.Action("DangKyTHPartial", "DONVILUHANH")</li>
+    <li>@Html.Action("DangNhapTHPartial", "DONVILUHANH")</li>
+
+}
+
+

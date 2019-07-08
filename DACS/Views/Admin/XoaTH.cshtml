@@ -1,0 +1,50 @@
+﻿@model DACS.Models.DONVILUHANH
+
+@{
+    ViewBag.Title = "XoaTH";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Xác nhận thông tin thương hiệu cần xóa</h2>
+
+<h3>Bạn có quyết định xóa thương hiệu này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên thương hiệu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDV)
+        </dd>
+
+        <dt>
+            Ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Images/ThuongHieu/"+Model.AnhDV)" width="120px" />
+        </dd>
+
+        <dt>
+            Điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("TRỞ VỀ THƯƠNG HIỆU", "Thuonghieu")
+        </div>
+    }
+</div>
+

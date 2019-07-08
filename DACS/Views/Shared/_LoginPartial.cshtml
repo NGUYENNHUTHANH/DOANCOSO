@@ -1,0 +1,23 @@
+﻿@if (Session["Taikhoan"] != null)
+{
+   
+        <li>
+            Hello, @Session["Tentaikhoan"]
+        </li>
+        <li>
+            <a href="@Url.Action("Dangxuat","User")">Đăng Xuất</a>
+        </li>
+        <li>@Html.Action("GiohangPartial", "Giohang")</li>
+    
+}
+else
+{
+
+    <li>@Html.Action("DangKyPartial", "User")</li>
+    <li>@Html.Action("DangNhapPartial", "User")</li>
+    
+
+
+}
+
+

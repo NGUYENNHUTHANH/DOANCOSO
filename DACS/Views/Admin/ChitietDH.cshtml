@@ -1,0 +1,66 @@
+﻿@model DACS.Models.DONDATHANG
+@{
+    ViewBag.Title = "ChitietDH";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ChitietDH</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Đã thanh toán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dathanhtoan)
+        </dd>
+
+        <dt>
+            Tình trạng giao hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tinhtranggiaohang)
+        </dd>
+
+        <dt>
+            Ngày đặt:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaydat)
+        </dd>
+
+        <dt>
+            Ngày giao:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaygiao)
+        </dd>
+
+        <dt>
+            Họ tên KH:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.HoTen)
+        </dd>
+
+        <dt>
+            Địa chỉ KH:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.DiachiKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Xóa", "XoaDH", new { id = Model.MaDonHang }) |
+    @Html.ActionLink("Chi tiết đơn hàng", "Chitietdonhang", new { id = Model.MaDonHang }) |
+    @Html.ActionLink("TRỞ VỀ ĐƠN ĐẶT HÀNG", "Dondathang")
+</p>
+

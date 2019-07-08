@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DACS.Models.DONDATHANG>
+@{
+    ViewBag.Title = "Dondathang";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ ĐƠN ĐẶT HÀNG</h2>
+
+<table class="table">
+    <tr>
+        <th style="width:200px">Thanh toán</th>
+        <th style="width:100px">Tình trạng giao hàng</th>
+        <th style="width:300px">Ngày đặt</th>
+        <th style="width:120px">Ngày thăm quan</th>
+        <th style="width:150px">Tên khách hàng</th>
+        <th style="width:200px">Địa chỉ</th>
+        <th style="width:200px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dathanhtoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tinhtranggiaohang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaydat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaygiao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.DiachiKH)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "ChitietDH", new { id = item.MaDonHang }) |
+                @Html.ActionLink("Xóa", "XoaDH", new { id = item.MaDonHang })
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,40 @@
+﻿@model DACS.Models.DONVILUHANH
+@{
+    ViewBag.Title = "ChitietTH";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ChitietTH</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên thương hiệu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDV)
+        </dd>
+
+        <dt>
+            Ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Img/ThuongHieu/"+Model.AnhDV)" width="120px" />
+        </dd>
+
+        <dt>
+            Điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "SuaTH", new { id = Model.MaTH }) |
+    @Html.ActionLink("TRỞ VỀ THƯƠNG HIỆU", "Thuonghieu")
+</p>

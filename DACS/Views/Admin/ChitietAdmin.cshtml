@@ -1,0 +1,44 @@
+﻿@model DACS.Models.ADMIN
+@{
+    ViewBag.Title = "ChitietAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ChitietAdmin</h2>
+
+<div>
+    <h4>ADMIN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tài khoản admin:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserAdmin)
+        </dd>
+
+        <dt>
+            Mật khẩu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassAdmin)
+        </dd>
+
+        <dt>
+            Họ tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hoten)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Điều chỉnh", "SuaAdmin", new { id = Model.MaAdmin }) |
+    @Html.ActionLink("TRỞ VỀ ADMIN", "ListAdmin")
+</p>
+
+

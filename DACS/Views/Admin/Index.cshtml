@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    a {
+        color: #333;
+    }
+</style>
+
+<h3>ĐÂY LÀ TRANG CHỦ ADMIN <br /></h3>
+
+@*Ứng dụng tích hợp*@
+<div class="title_ne">
+    <img src="~/Img/Admin/iconapps.png" />
+    <span>Ứng dụng tích hợp</span>
+</div>
+
+<div class="Danhsach_menu" style="padding-left: 35px">
+    <a href="/Admin/Phanloai" style="float: left">
+        <div class="img_Menu">
+            <img src="~/Img/Admin/phanloai.jpg" />
+        </div>
+        <div class="Ten_menu">
+            QL Phân loại
+        </div>
+    </a>
+
+    <a href="/Admin/Chude" style="float: left">
+        <div class="img_Menu">
+            <img src="~/Img/Admin/chude.png" />
+        </div>
+        <div class="Ten_menu">
+            QL Chủ đề
+        </div>
+    </a>
+
+    <a href="/Admin/Thuonghieu" style="float: left">
+        <div class="img_Menu">
+            <img src="~/Img/Admin/thuonghieu.png" />
+        </div>
+        <div class="Ten_menu">
+            QL Thương hiệu
+        </div>
+    </a>
+
+    <a href="/Admin/Sanpham" style="float: left">
+        <div class="img_Menu">
+            <img src="~/Img/Admin/sanpham.png" />
+        </div>
+        <div class="Ten_menu">
+            QL Sản phẩm
+        </div>
+    </a>
+
+    <a href="/Admin/Khachhang" style="float: left">
+        <div class="img_Menu">
+            <img src="~/Img/Admin/nguoidung.png" />
+        </div>
+        <div class="Ten_menu">
+            QL Khách hàng
+        </div>
+    </a>
+
+    <a href="/Admin/Dondathang" style="float: left">
+        <div class="img_Menu">
+            <img src="~/Img/Admin/donhang.jpg" />
+        </div>
+        <div class="Ten_menu">
+            QL Đơn đặt hàng
+        </div>
+    </a>
+</div>
+
+@*Quản trị*@
+<div class="title_ne">
+    <img src="~/Img/Admin/ico_PhanQuyen.png" />
+    <span>Quản trị</span>
+</div>
+
+<div class="Danhsach_menu" style="padding-left: 35px">
+    <a href="/Admin/ListAdmin" style="float: left">
+        <div class="img_Menu">
+            <img src="~/Img/Admin/admin.png" />
+        </div>
+        <div class="Ten_menu">
+            Danh sách Admin
+        </div>
+    </a>
+</div>
+

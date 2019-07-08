@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold;">
+        <td>Mã SP</td>
+        <td>Tên SP</td>
+        <td>Ảnh bìa</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold;">
+            <td>@item.iMaSP</td>
+            <td>@item.sTenSP</td>
+            <td><img src="~/Images/SanPham/@item.sAnhbia" width="100" height="100" /></td>
+            @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSP = item.iMaSP }))
+            {
+                <td>
+                    <input type="number" min="1" name="txtSoluong" value="@item.iSoluong" style="background-color:white;" />
+                </td>
+                <td>@String.Format("{0:0,0}", item.dDongia)</td>
+                <td>@String.Format("{0:0,0}", item.dThanhtien)</td>
+                <td><a href="@Url.Action("Details","Guest",new { id = item.iMaSP })">Chi tiết</a></td>
+                <td>@Html.ActionLink("Xoá", "XoaGiohang", new { @iMaSP = item.iMaSP })</td>
+                <td><input type="submit" value="Cập nhật" /></td>
+            }
+
+        </tr>
+    }
+    <tr style="text-align:right; font-weight:bold; color:red;">
+        <td colspan="4">Số lượng vé: @ViewBag.Tongsoluong</td>
+        <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
+    </tr>
+    <tr style="font-weight:bold; text-align:right; color:red;">
+        <td colspan="9">
+            @Html.ActionLink("Xóa giỏ hàng", "XoatatcaGiohang")
+        </td>
+    </tr>
+    <tr style="font-weight:bold; text-align:right; color:red;">
+        <td colspan="9" align="center" style="font-size:40px;">
+            @Html.ActionLink("ĐẶT VÉ", "DatHang", "Giohang")
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,13 @@
+﻿@if (Session["Taikhoanadmin"] != null)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <p style="padding-top:15px; font-weight:bold; color:white; margin-top:6px;">Hello, @Session["TenAdmin"]</p>
+        </li>
+        <li>
+            <a href="@Url.Action("DangxuatAdmin","Admin")" style="margin-top:8px;">Đăng Xuất</a>
+        </li>
+    </ul>
+}
+
+

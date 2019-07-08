@@ -1,0 +1,49 @@
+﻿@using DACS.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DACS.Models.PHANLOAI>
+
+@{
+    ViewBag.Title = "Phanloai";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ PHÂN LOẠI</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemmoiPL")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th>
+            Tên phân loại
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenPL)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaPL", new { id = item.MaPL }) |
+                @Html.ActionLink("Chi tiết", "ChitietPL", new { id = item.MaPL }) |
+                @Html.ActionLink("Xóa", "XoaPL", new { id = item.MaPL })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*Tạo liên kết các trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Phanloai", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
